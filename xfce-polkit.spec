@@ -8,9 +8,10 @@ URL:            https://github.com/ncopa/%{name}
 Source0:        %{url}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRequires: make
-BuildRequires:  automake
-BuildRequires:  libxfce4ui-devel polkit-devel
-BuildRequires:  desktop-file-utils
+BuildRequires: automake
+BuildRequires: pkgconfig(polkit-agent-1)
+BuildRequires: pkgconfig(libxfce4ui-2)
+BuildRequires: desktop-file-utils
 
 Provides: PolicyKit-authentication-agent
 
@@ -31,7 +32,7 @@ autoreconf -fi
 %install
 %make_install
 desktop-file-edit --remove-key=NotShowIn --add-only-show-in=XFCE \
- %{buildroot}%{_sysconfdir}/xdg/autostart/%{name}.desktop
+%{buildroot}%{_sysconfdir}/xdg/autostart/%{name}.desktop
 
 %files
 %license LICENSE
