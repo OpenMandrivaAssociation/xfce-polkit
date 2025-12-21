@@ -7,6 +7,9 @@ License:        GPLv2+
 URL:            https://github.com/ncopa/%{name}
 Source0:        %{url}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
+BuildRequires:	autoconf
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires: make
 BuildRequires: automake
 BuildRequires: pkgconfig(polkit-agent-1)
